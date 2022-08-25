@@ -71,16 +71,16 @@
 --     foreign key(productId) REFERENCES products(id)
 -- );
 
--- SELECT * FROM categories;
--- SELECT * FROM products;
--- SELECT * FROM orders;
-
 -- INSERT INTO order_details(id,orderId,productId,quantuty,price,totalPrice,discount)
 -- VALUES 
 -- -- (1,1,1,5,3000,3000*5,10);
 -- -- (2,2,2,10,500,500*10,5);
 -- (3,1,3,10,2000,2000*10,10);
 
-SELECT * FROM order_details;
+
+-- SELECT * FROM categories;
+-- SELECT * FROM products;
+-- SELECT * FROM orders;
+-- SELECT * FROM order_details;
 
 
