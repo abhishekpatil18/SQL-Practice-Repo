@@ -11,6 +11,7 @@
 --------------------------------------------------------
 -- create DATABASE student_db;
 -- use student_db;
+-- select * from student;
 
 -- CREATE TABLE school(
 -- id int PRIMARY key IDENTITY(1,1),
