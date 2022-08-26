@@ -18,7 +18,7 @@
 
 
 -- Q1 : Write a query to get unique department ID from employee table.
--- use hr_db;
+use hr_db;
 SELECT * FROM employees;
 -- SELECT DISTINCT DEPARTMENT_ID FROM employees;
 
