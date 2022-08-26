@@ -39,7 +39,7 @@
 -- select * from school;
 
 -- insert into student(id,name,address,phone,email,age,schoolId) VALUES
---  (1,'Abhi','Bamnoli','8552013697','abhi@gmail.com',22,3);
+--  (1,'Abhi','Bamnoli','8552013697','abhi@gmail.com',22,3),
 -- (2,'Rohit','kupwad','1233456789','rohit@gmail.com',22,5);
 
 -- select * from student;
