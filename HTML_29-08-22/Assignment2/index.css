@@ -20,14 +20,15 @@
     .find select{
         border: none;
         border-right: 1px solid gray;
-        width: 200px;
+        width: 300px;
+        outline: none;
     }
     input[type="search"]{
         border: none;
         width: 300px;
     }
-    input[type="search"]:focus-within{
-        border: none;
+    input[type="search"]{
+      outline: none;
     }
     .data h1,.data h2{
         color: white;
