@@ -1,0 +1,199 @@
+.main{
+ position: inherit;
+    width: 100%;
+    height: 600px;
+    background-image: url(https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png);
+}
+
+    .data{
+        position: absolute;
+        left: 24%;
+        top: 30%;
+        text-align: center;
+    }
+    .data .find{
+        background-color: white;
+        width: auto;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .find select{
+        border: none;
+        border-right: 1px solid gray;
+        width: 300px;
+        outline: none;
+    }
+    input[type="search"]{
+        border: none;
+        width: 300px;
+    }
+    input[type="search"]{
+      outline: none;
+    }
+    .data h1,.data h2{
+        color: white;
+    }
+
+
+    /* Card Elements CSS */
+
+.card-element {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.collection{
+    margin: 40px;
+    margin-left: 180px;
+    width: 75%;
+    /* border: 1px solid; */
+}
+
+.collection h5{
+    font-weight: 100;
+}
+
+.collection h5 span{
+    margin-left: 50px;
+    color: rgb(241, 138, 156);
+}
+
+.img-row{
+    display: flex;
+}
+
+.images img{
+    border-radius:20px ;
+    margin: 10px;
+    width: 250px;
+    height: 300px;
+}
+
+.popular .hedder h1{
+    font-weight: 300;
+    font-size : 2.5rem;
+}
+.same-info{
+    border: 1px solid rgb(192, 192, 192);
+    width: 320px;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow:2px 2px #888888 ;
+}
+
+.places{
+    display: flex;
+    flex-wrap: wrap ;
+}
+
+.same-info h3{
+    font-weight: 350;
+}
+
+/* CSS For About Section */
+.about-main{
+    position: inherit;
+    width: 100%;
+    height: 600px;
+    /* position: ; */
+}
+.about-main img{
+    width: 100%;
+    /* z-index: -1; */
+}
+.about-main .orders{
+    position: absolute;
+    top: 60%;
+    left: 10%;
+}
+.orders{
+    color: white;
+}
+.orders h1{
+    font-weight: bolder;
+    font-size: 50px;
+
+}
+.who-we{
+    background-color: #f1eeee;
+    /* width: 80%; */
+    /* margin-left: 8%; */
+    margin-top: -10px;
+    display: flex;
+}
+.about-info{
+    width:60%;
+    padding: 40px;
+}
+.about-info h1{
+    font-size: 40px;
+    /* margin: 20px; */
+}
+.about-info p{
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.5em;
+}
+.about-who-img img{
+    width: 300px;
+    height: 400px;
+    margin-top: 30px;
+    margin: 30px 0px 0px 80px;
+    /* float: right; */
+}
+
+
+
+
+
+/* Contact US Page */
+
+.navbar{
+    width: 100%;
+}
+
+.form-data{
+    position: absolute;
+    left: 10%;
+    top: 15%;
+}
+
+
+
+/* FOOTER SECTION  */
+.footer{
+    background-color: #fcfafa;
+    background:  linear-gradient(#ffff, #d4d3d3);;
+    margin-left: 0;
+    width: 100%;
+    margin-bottom: -20px;
+}
+.hedder h2{
+    margin-left: 180px;
+}
+
+.foot-data{
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 180px;
+}
+.about-zomato{
+    margin: 30px;
+    margin-right: 60px;
+}
+.about-zomato h5{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.about-zomato ul li{
+    list-style: none;
+    margin-left: -30px;
+    font-weight: lighter;
+    font-size: 15px;
+}

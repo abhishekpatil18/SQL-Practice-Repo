@@ -1,0 +1,120 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main{
+    border: 1px solid black;
+    margin: 150px;
+    padding: 50px;
+}
+
+.head .info{
+display: flex;
+}
+.head h2{
+    margin: 30px;
+}
+.info img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 30px;
+}
+
+/* RESUME body section designing */
+.resume-body{
+    display: flex;
+    margin: 30px;
+}
+.resume-body .section-left{
+    width: 50%;
+    margin: 20px;
+    /* border: 1px solid; */
+}
+.resume-body .section-right{
+    width: 50%;
+    margin: 20px;
+}
+.education .high-education{
+    padding-left: 30px;
+    margin-bottom: 80px;
+}
+
+/* Education Section */
+
+.high-education h4{
+font-style: italic;
+font-weight: 100;
+}
+.high-education .edu-type{
+font-weight: bold;
+}
+
+.high-education .coll-name{
+    font-weight: 100
+    }
+
+.education h2{
+    font-weight: bolder;
+}
+
+/* Project Section */
+
+.projects ul li{
+    list-style:square;
+}
+
+
+/* Skills Section */
+
+.skills-block button{
+border: none;
+margin: 5px;
+padding: 5px;
+border-radius: 5px;
+background-color: gray;
+color: white;
+cursor: pointer;
+}
+.skills ,.certificates ,.language ,.interests{
+margin: 20px;
+}
+
+/* Certificate Section */
+
+.certificates-data h4{
+    font-weight: 100;
+}
+
+.certificates-data{
+    margin-left: 30px;
+}
+
+/* Language Section */
+
+.language-data{
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.language-data .eng , .hindi, .marathi{
+    margin: 5px;
+}
+
+.language-data h5{
+    margin-bottom: 40px;
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* Interest Section */
+
+.interest-block button{
+border:1px solid gray;
+margin: 5px;
+padding: 5px;
+border-radius: 5px;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+cursor: pointer;
+}
