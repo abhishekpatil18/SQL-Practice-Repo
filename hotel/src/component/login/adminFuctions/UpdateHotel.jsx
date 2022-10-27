@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AdminDashboard from '../AdminDashboard';
 
 const UpdateHotel = () => {
     let Hotels = [
@@ -30,28 +31,33 @@ const UpdateHotel = () => {
         setHotelId(e.target.value);
     }
 
-    let isAvailable = true; 
-
+    
+    let bool=false;
     let checkHotel=()=>{
         for(let i=0;i<Hotels.length;i++){
-            if(hotelId-1==i){
-                alert("Hotel is Available to Update");
-                return 1;
+            if(hotelId-1===i){
+                bool=true;
+                return Hotels[i];
             }
         }
-        return alert("Hotel not Available");
+        return {};
     }
+
+
+    let isAvailable = checkHotel(); 
 
     let onChangeHandle=(e)=>{
 
     }
     let updateHotel=()=>{
-
+        alert("Records has been updated")
     }
     return (
+        <>
+        <AdminDashboard/>
         <div className='container'>
             <div className="updateHotel">
-                <h1 className="text-center m-5">Add New Hotel</h1>
+                <h1 className="text-center m-5">Update Hotel</h1>
                 <div className="row mb-4">
                     <div className="col-3">
                         <label className="col-sm col-form-label">Enter Hotel Id</label>
@@ -60,29 +66,36 @@ const UpdateHotel = () => {
                     </div>
                 
                 </div>
-                 <div className="row mb-5">
-                    <div className="col">
-                        <label className="col-sm-4 col-form-label">Hotel Name</label>
-                        <input type="text" onChange={onChangeHandle} id='name' className="form-control" placeholder="Hotel Name" aria-label="Hotel Name" />
+                       
+                {
+                       bool && <div className="row mb-5">
+                        <h1>Enter updated details</h1>
+                        <div className="col">
+                            <label className="col-sm-4 col-form-label">Hotel Name</label>
+                            <input type="text" onChange={onChangeHandle} id='name' className="form-control" placeholder={isAvailable.name} aria-label="Hotel Name" />
+                        </div>
+                        <div className="col">
+                            <label className="col-sm-4 col-form-label">Address</label>
+                            <input type="text" onChange={onChangeHandle} id='address' className="form-control" placeholder={isAvailable.name} aria-label="Address" />
+                        </div>
+                        <div className="col">
+                            <label className="col-sm-4 col-form-label">Contact</label>
+                            <input type="number" onChange={onChangeHandle} id='contact' className="form-control" placeholder={isAvailable.name} aria-label="Contact Details" />
+                        </div>
+                        <div className="col">
+                            <h2 className="col-sm-6 col-form-label">Add new Hotel</h2>
+                            <button onClick={updateHotel} className='btn btn-success'>Update</button>
+                        </div>
                     </div>
-                    <div className="col">
-                        <label className="col-sm-4 col-form-label">Address</label>
-                        <input type="text" onChange={onChangeHandle} id='address' className="form-control" placeholder="Address" aria-label="Address" />
-                    </div>
-                    <div className="col">
-                        <label className="col-sm-4 col-form-label">Contact</label>
-                        <input type="number" onChange={onChangeHandle} id='contact' className="form-control" placeholder="Contact" aria-label="Contact Details" />
-                    </div>
-                    <div className="col">
-                        <h2 className="col-sm-6 col-form-label">Add new Hotel</h2>
-                        <button onClick={updateHotel} className='btn btn-success'>Add</button>
-                    </div>
-                </div>
+                }
+
+
 
             </div>
 
             
         </div>
+        </>
     )
 }
 

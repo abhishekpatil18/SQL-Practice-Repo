@@ -38,8 +38,9 @@ const AddHotel = () => {
     }
 
     return (
-        <div className='container'>
+        <div >
             <AdminDashboard></AdminDashboard>
+            <div className='container'>
             <div className="addNewHotel">
                 <h1 className="text-center m-5">Add New Hotel</h1>
                 <div className="row mb-5">
@@ -86,6 +87,8 @@ const AddHotel = () => {
                     </tbody>
                 </table>
             </div>
+            </div>
+           
         </div>
     )
 }
