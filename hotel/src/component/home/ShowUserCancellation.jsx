@@ -1,20 +1,15 @@
 import React from 'react'
-import AdminDashboard from '../AdminDashboard'
+import Navbar from '../navbar/Navbar'
 
-const ShowCancellation = () => {
-
+const ShowUserCancellation = () => {
     let cancledBookings = [
         {
-            userName: 'Abhishek',
-            email: 'abhi@gmail.com',
             hotelName: 'Hotel_1',
             category: 6,
             tables: 1,
             reason: 'something'
         },
         {
-            userName: 'Damodhar',
-            email: 'damu@gmail.com',
             hotelName: 'Hotel_2',
             category: 4,
             tables: 2,
@@ -23,18 +18,15 @@ const ShowCancellation = () => {
     ]
 
     return (
-        <div>
-            <AdminDashboard />
+        <div><Navbar/>
             <div className="container">
 
-                <h2 className='text-center p-2 rounded bg-secondary text-light'>List of cancled Bookings</h2>
+                <h2 className='text-center mt-3 p-2 rounded bg-secondary text-light'>List of cancled Bookings</h2>
 
                 <table className='mt-5 table table-striped rounded' >
                     <thead>
-                        <tr className='text-center bg-danger text-light'>
+                        <tr className='text-center bg-secondary text-light'>
                             <th>SR. NO</th>
-                            <th>User Name</th>
-                            <th>Email</th>
                             <th>Hotel Name</th>
                             <th>Category (Persons)</th>
                             <th>Tables</th>
@@ -47,8 +39,6 @@ const ShowCancellation = () => {
                             cancledBookings.map((val, index) => {
                                 return <tr className='text-center'>
                                     <td>{index + 1}</td>
-                                    <td>{val.userName}</td>
-                                    <td>{val.email}</td>
                                     <td>{val.hotelName}</td>
                                     <td>{val.category}</td>
                                     <td>{val.tables}</td>
@@ -64,4 +54,4 @@ const ShowCancellation = () => {
     )
 }
 
-export default ShowCancellation
+export default ShowUserCancellation

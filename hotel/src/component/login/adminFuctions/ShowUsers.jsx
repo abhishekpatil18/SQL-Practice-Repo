@@ -1,39 +1,11 @@
 import React from 'react'
 import AdminDashboard from '../AdminDashboard'
+import { useSelector, useDispatch } from 'react-redux'
+import { addUser, removeUser } from '../../../feature/user/userSlice' 
 
 const ShowUsers = () => {
-    let Users = [
-        {
-            firstName:'Abhishek',
-            lastName:'patil',
-            email:'abhi@gmail.com',
-            password:'abhi',
-            contact:'9876543210',
-            address:'kupwad',
-            city:'sangli',
-            state:'MH'
-        },
-        {
-            firstName:'Damodhar',
-            lastName:'Jadhav',
-            email:'damu@gmail.com',
-            password:'damu',
-            contact:'9876543210',
-            address:'Buldhana',
-            city:'Buldhana',
-            state:'MH'
-        },
-        {
-            firstName:'Sagar',
-            lastName:'sonavne',
-            email:'sagar@gmail.com',
-            password:'sagar',
-            contact:'9876543210',
-            address:'ashta',
-            city:'sangli',
-            state:'MH'
-        }
-    ]
+    let Users = useSelector(state => state.user.userData);
+    const dispatch = useDispatch();
   return (
     <div >
         <AdminDashboard/>

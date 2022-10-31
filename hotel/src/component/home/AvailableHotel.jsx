@@ -1,55 +1,40 @@
 import React, { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 import Navbar from '../navbar/Navbar'
+import { useSelector, useDispatch } from 'react-redux'
+import {addToSelectedHotel} from '../../feature/user/selectedHotel'
+import Hotel1 from '../../images/h1.jpg' 
 
 const AvailableHotel = () => {
-    let Hotels = [
-        {
-          name: 'Hotel_1',
-          address: 'Sangli',
-          contact: 9730691460
-        },
-        {
-          name: 'Hotel_2',
-          address: 'Pune',
-          contact: 9700091460
-        },
-        {
-          name: 'Hotel_3',
-          address: 'Kolhapure',
-          contact: 973000090
-        },
-        {
-          name: 'Hotel_4',
-          address: 'Satare',
-          contact: 9790691460
-        }
-      ]
-      let selectArray=[];
+
+    let availableHotel = useSelector(state=>state.availableHotel.availabeHotels);
+    const dispatch = useDispatch();
+
+      let navigate = useNavigate()
+      let [selected , setSelected] = useState(0);
       let select=(e)=>{
-        selectArray.push(Number(e.target.id));
-        alert(`Hotel No ${Number(e.target.id)+1} has been selected`)
+        dispatch(addToSelectedHotel(availableHotel[e.target.id]));
+        setSelected(1)
       }
 
-      let selectedHotel = [];
-      let showSelected= function(){
-        for(let j=0;j<selectArray.length;j++){
-            for(let i=0;i<Hotels.length;i++){
-              if(selectArray[j]==i){
-                selectedHotel.push(Hotels[i]);
-              }  
-            }
-        }
-        console.log(selectedHotel);
+      let showSelected = ()=>{
+       if(selected!=0){
+        navigate('/home')
+       }
+       else{
+        alert("Please select required Hotel ")
+       }
       }
 
   return (
-    <div>
+    <div className='mb-5'>
         <Navbar/>
         <div className="container">
             <h2 className='text-center m-3'>Available Hotels</h2>
             <table className="table table-striped">
                 <thead>
                     <tr>
+                      <th>Hotel</th>
                         <th>Hotel Name</th>
                         <th>Address</th>
                         <th>Contact</th>
@@ -58,8 +43,9 @@ const AvailableHotel = () => {
                 </thead>
                 <tbody>
                     {
-                        Hotels.map((val,index)=>{
+                        availableHotel.map((val,index)=>{
                             return <tr key={index}>
+                              <td><img style={{width:'150px', height:'100px'}} src={Hotel1} alt="...." /></td>
                                 <td>{val.name}</td>
                                 <td>{val.address}</td>
                                 <td>{val.contact}</td>
@@ -70,7 +56,7 @@ const AvailableHotel = () => {
 
                 </tbody>
             </table>
-            <button className='btn btn-primary'onClick={showSelected}>Show</button>
+            <button className='btn btn-primary'onClick={showSelected}>Go to selected Hotels</button>
         </div>
     </div>
   )

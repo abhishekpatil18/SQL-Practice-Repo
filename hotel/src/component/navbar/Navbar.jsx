@@ -1,7 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Navbar = () => {
+    const navigate= useNavigate();
+    let signOut=()=>{
+        navigate('/')
+    }
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,15 +28,14 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" exact to="/showUserBookings" >Show Bookings</Link>
                             </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link" exact to="/showUserCancellation" >Show Cancellation</Link>
+                            </li>
                         </ul>
-                        {/* <form className="d-flex">
-                            <Link to='/userLogin'>
-                            <button className="btn btn-success m-2" type="button">Login</button>
-                            </Link>
-                            <Link to='/registration'>
-                            <button className="btn btn-primary m-2" type="button">Register</button>
-                            </Link>
-                        </form> */}
+                        <form className="d-flex">
+                            <button onClick={signOut} className="btn btn-danger m-2" type="button">Sign Out</button>
+                        </form>
                     </div>
                 </div>
             </nav>
