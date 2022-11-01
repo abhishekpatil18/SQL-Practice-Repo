@@ -1,21 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import Navbar from '../navbar/Navbar'
 
 const ShowUserCancellation = () => {
-    let cancledBookings = [
-        {
-            hotelName: 'Hotel_1',
-            category: 6,
-            tables: 1,
-            reason: 'something'
-        },
-        {
-            hotelName: 'Hotel_2',
-            category: 4,
-            tables: 2,
-            reason: 'something'
-        }
-    ]
+
+    let cancledBooking = useSelector(state=> state.CancellationSlice.canceledArray);
+    let canceledTable = useSelector(state=> state.CancellationSlice.canceledTable)
 
     return (
         <div><Navbar/>
@@ -30,19 +20,17 @@ const ShowUserCancellation = () => {
                             <th>Hotel Name</th>
                             <th>Category (Persons)</th>
                             <th>Tables</th>
-                            <th>Reason</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         {
-                            cancledBookings.map((val, index) => {
-                                return <tr className='text-center'>
+                            cancledBooking.map((val, index) => {
+                                return <tr key={index} className='text-center'>
                                     <td>{index + 1}</td>
-                                    <td>{val.hotelName}</td>
-                                    <td>{val.category}</td>
-                                    <td>{val.tables}</td>
-                                    <td>{val.reason}</td>
+                                    <td>{val.name}</td>
+                                    <td>{val.address}</td>
+                                    <td>{canceledTable[index].payload}</td>
                                 </tr>
                             })
                         }

@@ -1,25 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import AdminDashboard from '../AdminDashboard'
 
 const ShowBookings = () => {
 
-    let Bookings= [
-        {
-            userName:'Abhishek',
-            email:'abhi@gmail.com',
-            hotelName:'Hotel_1',
-            category:6,
-            tables:1
-        },
-        {
-            userName:'Damodhar',
-            email:'damu@gmail.com',
-            hotelName:'Hotel_2',
-            category:4,
-            tables:2
-        }
-    ]
-
+    let userBooking = useSelector(state=> state.selectedHotel.selectedArray)
+    let tables = useSelector(state=> state.BookingSlice.tableCount)
+    let User = useSelector(state=>state.InSessionSlice.inSessionArray)
+    console.log(userBooking)
+    console.log(User)
   return (
     <div>
         <AdminDashboard/>
@@ -33,24 +22,25 @@ const ShowBookings = () => {
                 <tr className='text-center text-light bg-primary'>
                     <th>SR. NO</th>
                     <th>User Name</th>
-                    <th>Email</th>
+                    <th>User Email</th>
                     <th>Hotel Name</th>
-                    <th>Category (Persons)</th>
+                    <th>Address</th>
+                    <th>Contact</th>
                     <th>Tables</th>
                 </tr>
             </thead>
 
             <tbody>
                 {
-                    Bookings.map((val,index)=>{
-                        return <tr className='text-center'>
+                    userBooking.map((val,index)=>{
+                        return <tr key={index} className='text-center'>
                             <td>{index+1}</td>
-                            <td>{val.userName}</td>
-                            <td>{val.email}</td>
-                            <td>{val.hotelName}</td>
-                            <td>{val.category}</td>
-                            <td>{val.tables}</td>
-                        
+                            <td>{User[index].firstName}</td>
+                            <td>{User[index].userEmail}</td>
+                            <td>{val.name}</td>
+                            <td>{val.address}</td>
+                            <td>{val.contact}</td>
+                            <td>{tables[index].payload}</td>
                         </tr>
                     })
                 }

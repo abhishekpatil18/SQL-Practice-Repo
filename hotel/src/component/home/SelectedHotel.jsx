@@ -11,7 +11,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   let bookTable = (e) =>{
-    dispatch(addToBookedHotel(selectedHotel[e.target.id]));
+    dispatch(addToBookedHotel(selectedHotel[e.target.id].payload));
   }
 
   return (
@@ -26,9 +26,9 @@ const Home = () => {
                 <div className="card p-2 m-3 rounded border" style={{width: '18rem',boxShadow:'0px 0px 10px 0px'}}>
                 <img src={Hotel1} alt="Loading..." />
                     <div className="card-body">
-                      <h4 className="card-title">{val.payload.name}</h4>
-                      <h6 className="card-text">{val.payload.address}</h6>
-                      <h4 className="card-text">{val.payload.contact}</h4>
+                      <h4 className="card-title">{val.name}</h4>
+                      <h6 className="card-text">{val.address}</h6>
+                      <h4 className="card-text">{val.contact}</h4>
                       <Link to="/bookTable" onClick={bookTable} id={index} className="btn btn-primary">Book Table</Link>
                     </div>
                 </div>

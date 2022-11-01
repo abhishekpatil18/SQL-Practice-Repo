@@ -15,7 +15,10 @@ const AvailableHotel = () => {
       let select=(e)=>{
         dispatch(addToSelectedHotel(availableHotel[e.target.id]));
         setSelected(1)
+        alert(`Your selected Hotel is : ${availableHotel[e.target.id].name  }`)
       }
+
+      let selectedHotel = useSelector(state=> state.selectedHotel.selectedArray);
 
       let showSelected = ()=>{
        if(selected!=0){
@@ -31,6 +34,7 @@ const AvailableHotel = () => {
         <Navbar/>
         <div className="container">
             <h2 className='text-center m-3'>Available Hotels</h2>
+            <button className='btn btn-primary m-4'onClick={showSelected}>Go to selected Hotels</button>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -56,7 +60,7 @@ const AvailableHotel = () => {
 
                 </tbody>
             </table>
-            <button className='btn btn-primary'onClick={showSelected}>Go to selected Hotels</button>
+            
         </div>
     </div>
   )

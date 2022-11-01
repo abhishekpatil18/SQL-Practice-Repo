@@ -1,11 +1,17 @@
 import React from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom'
+import { removeFromInSessionArray } from '../../feature/admin/inSession';
 
 const Navbar = () => {
-    const navigate= useNavigate();
-    let signOut=()=>{
+    let dispatch = useDispatch()
+    let user = useSelector(state => state.InSessionSlice.inSessionArray)
+
+    const navigate = useNavigate();
+    let signOut = () => {
         navigate('/')
     }
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,11 +32,7 @@ const Navbar = () => {
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link" exact to="/showUserBookings" >Show Bookings</Link>
-                            </li>
-
-                            <li className="nav-item">
-                                <Link className="nav-link" exact to="/showUserCancellation" >Show Cancellation</Link>
+                                <Link className="nav-link" to="/showUserCancellation" >Show Cancellation</Link>
                             </li>
                         </ul>
                         <form className="d-flex">

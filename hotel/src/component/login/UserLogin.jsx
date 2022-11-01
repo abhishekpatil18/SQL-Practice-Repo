@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useSelector,useDispatch } from 'react-redux';
 import {useNavigate, Link } from 'react-router-dom';
+import { addToInSessionArray } from '../../feature/admin/inSession';
 
 const UserLogin = () => {
 
@@ -8,46 +10,15 @@ const UserLogin = () => {
     userPassword: 'admin'
   }
 
-  const navigate= useNavigate();
+  let Users = useSelector(state=> state.user.userData)
+  let dispatch = useDispatch();
 
-  let Users = [
-    {
-        firstName:'Abhishek',
-        lastName:'patil',
-        userEmail:'abhi@gmail.com',
-        userPassword:'abhi',
-        contact:'9876543210',
-        address:'kupwad',
-        city:'sangli',
-        state:'MH'
-    },
-    {
-        firstName:'Damodhar',
-        lastName:'Jadhav',
-        userEmail:'damu@gmail.com',
-        userPassword:'damu',
-        contact:'9876543210',
-        address:'Buldhana',
-        city:'Buldhana',
-        state:'MH'
-    },
-    {
-        firstName:'Sagar',
-        lastName:'sonavne',
-        userEmail:'sagar@gmail.com',
-        userPassword:'sagar',
-        contact:'9876543210',
-        address:'ashta',
-        city:'sangli',
-        state:'MH'
-    }
-]
+  const navigate= useNavigate();
 
   let [loginDetails, setLoginDetails] = useState({});
 
   let onChangeHandle = (e) => {
     setLoginDetails({ ...loginDetails, [e.target.id]: e.target.value });
-    console.log(loginDetails);
   }
 
   
@@ -56,13 +27,17 @@ const UserLogin = () => {
       if(Users[i].userEmail==loginDetails.userEmail && Users[i].userPassword==loginDetails.userPassword){
         alert("Login Successful");
         navigate('/availableHotel')
+        dispatch(addToInSessionArray(Users[i]))
         return true;
+      }
+      else if(Admin.userEmail === loginDetails.userEmail && Admin.userPassword === loginDetails.userPassword){
+        navigate('/adminDashboard/addHotel')
+        return true
       }
     }
     alert("User not found")
     return false;
   }
-  // let login=Login();
 
   return (
     <div style={{ height: "400px"}} className='d-flex row m-4 align-items-center justify-content-center'>
@@ -81,19 +56,8 @@ const UserLogin = () => {
               <input type="password" onChange={onChangeHandle} className="form-control" id="userPassword" />
             </div>
           </div>
-          {
-            (Admin.userEmail === loginDetails.userEmail && Admin.userPassword === loginDetails.userPassword) &&
-            <Link to='/adminDashboard/addHotel'> <button type="button" id='adminLogin' className="btn btn-primary ms-3">
-              Admin
-              </button></Link>
-          }
-          {/* {
-            login &&  <Link to='/home'>
-            <button type="button" onClick={Login}  className="btn btn-primary ms-3">Sign in</button>
-            </Link>
-          } */}
-
-          <button type="button" onClick={Login}  className="btn btn-primary ms-3">Sign in</button>
+          
+          <button type="button" onClick={Login}  className="btn btn-primary ms-3">Log in</button>
           <p className='text-center'>Or</p>
           <Link to='/registration'>Create new account</Link>
           

@@ -26,6 +26,16 @@ export const availableHotelSlice = createSlice({
             }
           ]
     },
+    reducers:{
+      addToAvailableHotel: (state,obj)=>{
+        state.availabeHotels.push(obj.payload)
+      },
+      updateAvailableHotel:(state,obj,index)=>{
+        state.availabeHotels.splice(index,1,obj.payload)
+      }
+    }
 })
+
+export const {addToAvailableHotel,updateAvailableHotel} = availableHotelSlice.actions
 
 export default availableHotelSlice.reducer

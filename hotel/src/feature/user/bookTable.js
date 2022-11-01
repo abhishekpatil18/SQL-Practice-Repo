@@ -8,7 +8,8 @@ export const bookTableSlice = createSlice({
     reducers:{
        addToBookedHotel: (state,obj)=>{
         state.bookedHotel.splice(0,1,obj);
-       }
+       },
+       
     }
 })
 

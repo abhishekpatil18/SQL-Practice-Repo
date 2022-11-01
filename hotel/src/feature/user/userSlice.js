@@ -44,11 +44,11 @@ export const userSlice = createSlice({
             city:'sangli',
             state:'MH'
         }
-    ]
+    ],
   },
   reducers: {
     addUser: (state,obj) => {
-      state.userData.push(obj)
+      state.userData.push(obj.payload)
     },
     removeUser: state => {
     //   state.userData.splice({},1);
