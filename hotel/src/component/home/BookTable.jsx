@@ -2,12 +2,12 @@ import React from 'react'
 import Navbar from '../navbar/Navbar'
 import { Link,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {confirmBooking,confirmTableCount} from '../../feature/user/bookingSlice'
+import {addToBookedHotel, confirmBooking,confirmTableCount} from '../../feature/user/bookingSlice'
 import Hotel1 from '../../images/h1.jpg'
 import { useState } from 'react'
-
+ 
 const BookTable = () => {
-    let BookedArray = useSelector(state => state.BookTable.bookedHotel);
+    let BookedArray = useSelector(state => state.selectedHotel.selectedArray);
     let navigate = useNavigate();
     let sArray = [];
     for (let i = 0; i < 10; i++) {
@@ -20,7 +20,7 @@ const BookTable = () => {
         setTableNo(Number(e.target.id));
     }
 
-    let bookTable = () =>{
+    let bookTable = (e) =>{
         if(tableNo!==0){
             dispatch(confirmTableCount(tableNo));
             navigate('/showUserBookings')
@@ -29,7 +29,6 @@ const BookTable = () => {
             alert("Select Table Count")
         }
     }
-
     return (
         <div>
             <Navbar />

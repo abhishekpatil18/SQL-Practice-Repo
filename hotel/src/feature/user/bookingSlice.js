@@ -7,8 +7,8 @@ export const bookingSlice = createSlice({
         tableCount:[]
     },
     reducers:{
-        cancleBooking:(state,obj)=>{
-            
+        addToBookedHotel:(state,obj)=>{
+            state.bookedHotel.push(obj.payload)
         },
         confirmBooking : (state,obj)=>{
             state.bookedHotel.push(obj);
@@ -22,6 +22,6 @@ export const bookingSlice = createSlice({
     }
 })
 
-export const {cancleBooking,incrementByBookings,confirmTableCount, confirmBooking} = bookingSlice.actions;
+export const {addToBookedHotel,incrementByBookings,confirmTableCount, confirmBooking} = bookingSlice.actions;
 
 export default bookingSlice.reducer;

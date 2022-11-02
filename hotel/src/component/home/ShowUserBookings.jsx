@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { addToBookedHotel } from '../../feature/user/bookingSlice'
 import { addToCanceledArray, addToCancledTAble } from '../../feature/user/cancellationSlice'
 import { removeFromSelectedHotel } from '../../feature/user/selectedHotel'
 import Navbar from '../navbar/Navbar'
@@ -12,7 +13,6 @@ const ShowUserBooking = () => {
 
 
   let dispatch = useDispatch();
-
   let cancleBooking=(e)=>{
    dispatch(addToCanceledArray(userBooking[Number(e.target.id)]))
     dispatch(addToCancledTAble(tables[Number(e.target.id)]))

@@ -42,7 +42,7 @@ const Registration = () => {
         </div>
         <div className="col-md-6">
           <label htmlFor="userEmail" className="form-label">Email</label>
-          <input type="email" onChange={handleChange} className="form-control" id="userEmail" />
+          <input type="email" onChange={handleChange} required className="form-control" id="userEmail" />
         </div>
         <div className="col-md-6">
           <label htmlFor="userPassword" className="form-label">Password</label>

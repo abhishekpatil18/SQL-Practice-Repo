@@ -21,6 +21,7 @@ const UserLogin = () => {
     setLoginDetails({ ...loginDetails, [e.target.id]: e.target.value });
   }
 
+  // let 
   
   let Login=()=>{
     for(let i=0;i<Users.length;i++){
@@ -28,6 +29,7 @@ const UserLogin = () => {
         alert("Login Successful");
         navigate('/availableHotel')
         dispatch(addToInSessionArray(Users[i]))
+        // dispatch(removeFromInSessionArray())
         return true;
       }
       else if(Admin.userEmail === loginDetails.userEmail && Admin.userPassword === loginDetails.userPassword){

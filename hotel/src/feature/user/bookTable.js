@@ -15,4 +15,4 @@ export const bookTableSlice = createSlice({
 
 export const {addToBookedHotel} = bookTableSlice.actions;
 
-export default bookTableSlice.reducer;
+export default bookTableSlice.reducer; 
