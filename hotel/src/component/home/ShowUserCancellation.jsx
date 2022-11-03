@@ -5,7 +5,9 @@ import Navbar from '../navbar/Navbar'
 const ShowUserCancellation = () => {
 
     let cancledBooking = useSelector(state=> state.CancellationSlice.canceledArray);
-    let canceledTable = useSelector(state=> state.CancellationSlice.canceledTable)
+    console.log(cancledBooking);
+    let canceledTable = useSelector(state=> state.CancellationSlice.canceledTable);
+    console.log(canceledTable);
 
     return (
         <div><Navbar/>

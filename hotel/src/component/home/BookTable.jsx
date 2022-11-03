@@ -2,12 +2,14 @@ import React from 'react'
 import Navbar from '../navbar/Navbar'
 import { Link,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {addToBookedHotel, confirmBooking,confirmTableCount} from '../../feature/user/bookingSlice'
+import {addToBookedHotel,confirmTableCount} from '../../feature/user/bookingSlice'
 import Hotel1 from '../../images/h1.jpg'
 import { useState } from 'react'
  
 const BookTable = () => {
-    let BookedArray = useSelector(state => state.selectedHotel.selectedArray);
+    let BookedArray2 = useSelector(state => state.BookingSlice.bookedHotel);
+    let selectedHotel = useSelector(state => state.selectedHotel.selectedArray)
+    // console.log(selectedHotel)
     let navigate = useNavigate();
     let sArray = [];
     for (let i = 0; i < 10; i++) {
@@ -62,20 +64,23 @@ const BookTable = () => {
                         <h2 className='text-center mb-3 mt-3 bg-secondary text-light'>Hotel Info</h2>
                         <div className="card text-center">
                             {
-                                (BookedArray.length != 0 ) && <div className="card-header">
+                                (BookedArray2.length != 0 ) && <div className="card-header">
                                 Hotel of your Choice <br />
                                 <img src={Hotel1} alt="Loading.." />
                             </div>
                             }
                             {
-                                BookedArray.map((val,index)=>{
-                                   return  <div key={index} className="card-body">
-                                   <h2 className="card-title">{val.name}</h2>
-                                   <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                   <h4 className="card-text">Address.</h4>
-                                   <p className="card-text">{val.address}</p>
-                                   <a href="#" className="btn btn-primary">Know More</a>
-                               </div>
+                                BookedArray2.map((val,index)=>{
+                                    if(selectedHotel[0].name==BookedArray2[index].name){
+                                        return  <div key={index} className="card-body">
+                                        <h2 className="card-title">{val.name}</h2>
+                                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <h4 className="card-text">Address.</h4>
+                                        <p className="card-text">{val.address}</p>
+                                        <a href="#" className="btn btn-primary">Know More</a>
+                                    </div>
+                                    }
+                                   
                                 })
                                 
                             }

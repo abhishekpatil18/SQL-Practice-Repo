@@ -4,7 +4,8 @@ import AdminDashboard from '../AdminDashboard'
 
 const ShowBookings = () => {
 
-    let userBooking = useSelector(state=> state.selectedHotel.selectedArray)
+    // let userBooking = useSelector(state=> state.selectedHotel.selectedArray)
+    let userBooking = useSelector(state=> state.BookingSlice.bookedHotel)
     let tables = useSelector(state=> state.BookingSlice.tableCount)
     let User = useSelector(state=>state.InSessionSlice.inSessionArray)
     console.log(userBooking)

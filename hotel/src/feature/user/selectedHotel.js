@@ -9,7 +9,7 @@ export const selectedHotelSlice = createSlice({
     },
     reducers: {
         addToSelectedHotel: (state,obj) => {
-            state.selectedArray.push(obj.payload)
+            state.selectedArray.splice(0,1,obj.payload) 
         },
         removeFromSelectedHotel:(state,index)=>{
             state.selectedArray.splice(index,1)

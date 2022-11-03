@@ -31,7 +31,7 @@ export const userSlice = createSlice({
             userPassword:'sagar',
             contact:'9876543210',
             address:'ashta',
-            city:'sangli',
+            city:'sangli', 
             state:'MH'
         },
         {

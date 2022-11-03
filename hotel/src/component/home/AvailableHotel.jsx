@@ -11,22 +11,10 @@ const AvailableHotel = () => {
     const dispatch = useDispatch();
 
       let navigate = useNavigate()
-      let [selected , setSelected] = useState(0);
       let select=(e)=>{
-        dispatch(addToSelectedHotel(availableHotel[e.target.id]));
-        setSelected(1)
+        dispatch(addToSelectedHotel(availableHotel[e.target.id]))
         alert(`Your selected Hotel is : ${availableHotel[e.target.id].name  }`)
-      }
-
-      let selectedHotel = useSelector(state=> state.selectedHotel.selectedArray);
-
-      let showSelected = ()=>{
-       if(selected!=0){
         navigate('/home')
-       }
-       else{
-        alert("Please select required Hotel ")
-       }
       }
 
   return (
@@ -34,7 +22,7 @@ const AvailableHotel = () => {
         <Navbar/>
         <div className="container">
             <h2 className='text-center m-3'>Available Hotels</h2>
-            <button className='btn btn-primary m-4'onClick={showSelected}>Go to selected Hotels</button>
+            {/* <button className='btn btn-primary m-4'>Go to selected Hotels</button> */}
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -53,7 +41,7 @@ const AvailableHotel = () => {
                                 <td>{val.name}</td>
                                 <td>{val.address}</td>
                                 <td>{val.contact}</td>
-                                <td><button id={index} onClick={select} className='btn btn-success'>Select</button></td>
+                                <td><button id={index} onClick={select} className='btn btn-success'>Book Hotel</button></td>
                             </tr>
                         })
                     }

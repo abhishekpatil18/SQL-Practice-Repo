@@ -6,15 +6,18 @@ export const bookingSlice = createSlice({
         bookedHotel:[],
         tableCount:[]
     },
-    reducers:{
+    reducers:{ 
         addToBookedHotel:(state,obj)=>{
             state.bookedHotel.push(obj.payload)
         },
-        confirmBooking : (state,obj)=>{
-            state.bookedHotel.push(obj);
+        confirmTableCount: (state,obj)=>{
+            state.tableCount.push(obj)
         },
-        confirmTableCount : (state,obj)=>{
-            state.tableCount.push(obj);
+        removeFromBookedHotel : (state,obj,index)=>{
+            state.bookedHotel.splice(index,1);
+        },
+        removeFromTableCount : (state,obj,index)=>{
+            state.tableCount.push(index,1);
         },
         incrementByBookings: (state, action) => {
             state.bookedHotel += action.payload
@@ -22,6 +25,6 @@ export const bookingSlice = createSlice({
     }
 })
 
-export const {addToBookedHotel,incrementByBookings,confirmTableCount, confirmBooking} = bookingSlice.actions;
+export const {addToBookedHotel,incrementByBookings,confirmTableCount,removeFromBookedHotel, removeFromTableCount} = bookingSlice.actions;
 
 export default bookingSlice.reducer;

@@ -9,7 +9,6 @@ export const inSessionSlice= createSlice({
         addToInSessionArray:(state,obj)=>{
             state.inSessionArray.push(obj.payload)
         },
-
         removeFromInSessionArray: (state,obj)=>{
             state.inSessionArray.splice(0,1,obj);
         }

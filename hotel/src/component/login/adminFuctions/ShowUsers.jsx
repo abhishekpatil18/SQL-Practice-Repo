@@ -28,7 +28,7 @@ const ShowUsers = () => {
             <tbody>
                 {
                     Users.map((val,index)=>{
-                        return <tr className='text-center' key={val.email}>
+                        return <tr className='text-center' key={index}>
                             <td>{index+1}</td>
                             <td>{val.firstName}</td>
                             <td>{val.lastName}</td>

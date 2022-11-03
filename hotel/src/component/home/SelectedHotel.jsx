@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../navbar/Navbar'
 import { useSelector,useDispatch } from 'react-redux'
-import { addToBookedHotel } from '../../feature/user/bookTable'
+import { addToBookedHotel } from '../../feature/user/bookingSlice'
 import Hotel1 from '../../images/h1.jpg'
 
 
@@ -11,7 +11,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   let bookTable = (e) =>{
-    dispatch(addToBookedHotel(selectedHotel[e.target.id].payload));
+    dispatch(addToBookedHotel(selectedHotel[e.target.id]));
   }
 
   return (

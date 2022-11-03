@@ -24,15 +24,15 @@ export const availableHotelSlice = createSlice({
               address: 'Satare',
               contact: 9790691460
             }
-          ]
+          ],
     },
     reducers:{
       addToAvailableHotel: (state,obj)=>{
         state.availabeHotels.push(obj.payload)
       },
-      updateAvailableHotel:(state,obj,index)=>{
-        state.availabeHotels.splice(index,1,obj.payload)
-      }
+      updateAvailableHotel:(state,obj)=>{
+        state.availabeHotels.splice(obj.payload.index,1,obj.payload)
+      },
     }
 })
 
